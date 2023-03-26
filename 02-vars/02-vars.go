@@ -20,7 +20,9 @@ func main() {
 		e int = 5
 	)
 
-	fmt.Println(hello, hello2, a, A, b, c, d, e)
+	var userName, userAge = "Tom", 25
+
+	fmt.Println(hello, hello2, a, A, b, c, d, e, userName, userAge)
 
 	// change var
 	hello = "New hello"
