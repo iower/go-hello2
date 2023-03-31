@@ -17,6 +17,14 @@ func main() {
 	fmt.Println("a before: ", a)
 	inc(a)
 	fmt.Println("a after: ", a)
+
+	//
+	addFew(1, 2, 3)
+	addFew(1, 2, 3, 4)
+	addFew(1, 2, 3, 4, 5)
+
+	var nums = []int{5, 6, 7}
+	addFew(nums...)
 }
 
 func hello() {
@@ -39,4 +47,12 @@ func inc(x int) {
 	fmt.Println("x before: ", x)
 	x++
 	fmt.Println("x after: ", x)
+}
+
+func addFew(numbers ...int) {
+	var sum = 0
+	for _, number := range numbers {
+		sum += number
+	}
+	fmt.Println("sum = ", sum)
 }
