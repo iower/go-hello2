@@ -25,6 +25,10 @@ func main() {
 
 	var nums = []int{5, 6, 7}
 	addFew(nums...)
+
+	// return
+	fmt.Println(addReturn(4, 5))
+	fmt.Println(addNamedReturn(4, 5))
 }
 
 func hello() {
@@ -55,4 +59,13 @@ func addFew(numbers ...int) {
 		sum += number
 	}
 	fmt.Println("sum = ", sum)
+}
+
+func addReturn(x, y int) int {
+	return x + y
+}
+
+func addNamedReturn(x, y int) (z int) {
+	z = x + y
+	return
 }
