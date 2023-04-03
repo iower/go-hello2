@@ -29,6 +29,10 @@ func main() {
 	// return
 	fmt.Println(addReturn(4, 5))
 	fmt.Println(addNamedReturn(4, 5))
+
+	// multiple return
+	age, name := multipleReturn(4, 5, "Tom", "Simpson")
+	fmt.Println(age, name)
 }
 
 func hello() {
@@ -68,4 +72,10 @@ func addReturn(x, y int) int {
 func addNamedReturn(x, y int) (z int) {
 	z = x + y
 	return
+}
+
+func multipleReturn(x, y int, firstName, lastName string) (int, string) {
+	var z int = x + y
+	var fullName = firstName + "" + lastName
+	return z, fullName
 }
