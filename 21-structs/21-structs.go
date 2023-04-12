@@ -21,4 +21,21 @@ func main() {
 	fmt.Println(tom.name, tom.age)
 	tom.age = 38
 	fmt.Println(tom.name, tom.age)
+
+	// pointers
+	var tomPointer *person = &tom
+	fmt.Println("tomPointer", tomPointer)
+	tomPointer.age = 29
+	fmt.Println(tom.age)
+	(*tomPointer).age = 30
+	fmt.Println(tom.age)
+
+	var tom2 *person = &person{name: "Tom2", age: 23}
+	var anon *person = new(person)
+	fmt.Println(tom2, anon)
+
+	// fileld pointers
+	var agePointer *int = &tom.age
+	*agePointer = 35
+	fmt.Println(tom)
 }
