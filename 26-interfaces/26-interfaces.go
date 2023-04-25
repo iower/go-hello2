@@ -6,6 +6,10 @@ type Vehicle interface {
 	move()
 }
 
+func drive(vehicle Vehicle) {
+	vehicle.move()
+}
+
 type Car struct{}
 
 func (c Car) move() {
@@ -23,4 +27,9 @@ func main() {
 	var boing Vehicle = Aircraft{}
 	tesla.move()
 	boing.move()
+
+	tesla2 := Car{}
+	boing2 := Aircraft{}
+	drive(tesla2)
+	drive(boing2)
 }
