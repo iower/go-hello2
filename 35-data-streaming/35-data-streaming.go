@@ -14,6 +14,15 @@ func main() {
 		}
 		fmt.Println(num)
 	}
+
+	// range
+	intCh2 := make(chan int)
+
+	go factorial(7, intCh2)
+
+	for num := range intCh2 {
+		fmt.Println(num)
+	}
 }
 
 func factorial(n int, ch chan int) {
