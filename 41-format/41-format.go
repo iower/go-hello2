@@ -38,5 +38,36 @@ func main() {
 	v := 123
 	fmt.Fprintf(file2, "pointer: %p \n", &v)
 
-	fmt.Fprintf(file2, "value: %v %v %v %v", true, 10, 1.23, "string")
+	fmt.Fprintf(file2, "value: %v %v %v %v \n", true, 10, 1.23, "string")
+
+	fmt.Fprintln(file2)
+
+	// flags
+	fl := 123456789.123456789
+	fmt.Fprintf(file2, "%f\n", fl)
+	fmt.Fprintf(file2, "%20f\n", fl)
+	fmt.Fprintf(file2, "%-20f\n", fl)
+	fmt.Fprintf(file2, "%20.f\n", fl)
+	fmt.Fprintf(file2, "%-20.f\n", fl)
+	fmt.Fprintf(file2, "%.2f\n", fl)
+	fmt.Fprintf(file2, "%20.2f\n", fl)
+	fmt.Fprintf(file2, "%-20.2f\n", fl)
+
+	fmt.Fprintln(file2)
+
+	//
+
+	tom := person{
+		name:   "Tom",
+		age:    24,
+		weight: 68.5,
+	}
+
+	fmt.Fprintf(file2, "%-10s %-10d %-10.3f\n", tom.name, tom.age, tom.weight)
+}
+
+type person struct {
+	name   string
+	age    int32
+	weight float64
 }
