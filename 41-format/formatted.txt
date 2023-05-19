@@ -1,0 +1,14 @@
+boolean: false true 
+binary: 100 101 
+char: Ӓ 
+decimal: 10 
+octal: 11 
+quotes: '#' "quoted" 
+hex: ff FF 
+unicode: U+0001 
+exponential: 1.000000e+03 1.000000E+03 
+float: 123.456000 123.456000 
+float|exp: 123.456 123.456 1.23123123456E+08 1.23123123456E+08 
+string: string 
+pointer: 0xc0000b4030 
+value: true 10 1.23 string
