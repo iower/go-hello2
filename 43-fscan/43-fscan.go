@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 )
 
@@ -36,7 +37,22 @@ func writeData() {
 	//
 	file2 := createFile("data2.txt")
 	defer file2.Close()
+
 	fmt.Fprintf(file2, "%s %d %.2f\n", tom.name, tom.age, tom.weight)
+
+	//
+	people := []person{
+		{"Tom", 24, 68.5},
+		{"Bob", 25, 64.2},
+		{"Sam", 27, 73.6},
+	}
+
+	file3 := createFile("people.txt")
+	defer file3.Close()
+
+	for _, p := range people {
+		fmt.Fprintf(file3, "%s %d %.2f\n", p.name, p.age, p.weight)
+	}
 }
 
 func openFile(filename string) *os.File {
@@ -59,6 +75,7 @@ func readData() {
 	fmt.Fscanln(file, &name)
 	fmt.Fscanln(file, &age)
 	fmt.Println(name, age)
+	fmt.Println()
 
 	//
 	file2 := openFile("data2.txt")
@@ -70,6 +87,21 @@ func readData() {
 		os.Exit(1)
 	}
 	fmt.Printf("%-8s %-8d %-8.2f\n", name, age, weight)
+	fmt.Println()
+
+	//
+	file3 := openFile("people.txt")
+	for {
+		_, err = fmt.Fscanf(file3, "%s %d %f\n", &name, &age, &weight)
+		if err != nil {
+			if err == io.EOF {
+				break
+			} else {
+				fmt.Println(err)
+			}
+		}
+		fmt.Printf("%-8s %-8d %-8.2f\n", name, age, weight)
+	}
 }
 
 func main() {
