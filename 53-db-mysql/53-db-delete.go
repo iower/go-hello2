@@ -14,7 +14,8 @@ func main() {
 	}
 	defer db.Close()
 
-	result, err := db.Exec("update productdb.products set price = ? where id = ?", 900, 1)
+	result, err := db.Exec("delete from productdb.products where id = 1")
+
 	if err != nil {
 		panic(err)
 	}
